@@ -1,0 +1,27 @@
+Let O be a set of operations of NxN->N.
+Let n and m be an integers.
+For i a n-uplet of [1, ..., m]^n, we can generate integer results using the coordinates of i (we cannot use twice the same coordinate) and some operations in O. 
+We will call O(i) these integers.
+
+Example:
+Let n=3, m=4, O={+,-,*}.
+Let's consider i = (1,2,3), O(i) contains:
+* 2 (we just pick the value from the coordinates of the triplet i)
+* 5=2+3 (we sum two coordinates of i)
+* 4=(3-1)*2 (we substract two coordinates of i and multiply the result by a third one)
+* and many more values ...
+
+If O(i) does not contain 1 then let's p(O,i) = 0.
+If O(i) contains 1 then let's call p(O,i) the maximal integer p such that each integer of [1, p] belongs to O(i).
+
+In our previous example, p({+,-,*},(1,2,3)) = 9: we can generate all the numbers from 1 to 9 but not 10.
+
+Let's call p(O,n,m) the maximal value of p(O,i) for i in [1, ..., m]^n.
+The problem consists in finding p(O,n,m) given O, n and m in the ranges defined below:
+* O is a subset of the following operations: {+, -, *, /, %}, some precisions about operations and allowed computations:
+  ** negative results such as 3-5 are not allowed
+  ** / is the exact division, 5/3 is not allowed
+* n is an integer between 1 and 5.
+* m is an integer between 1 and 16.
+
+
